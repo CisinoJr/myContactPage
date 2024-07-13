@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Me</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            transition: background-color 0.3s ease;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .toggle-dark-mode {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            cursor: pointer;
+            font-size: 18px;
+        }
+        .language-select {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            cursor: pointer;
+            font-size: 18px;
+        }
+        form {
+            border: 1px solid #ccc;
+            padding: 20px;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+        form input, form textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            box-sizing: border-box;
+        }
+        form button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+        form button:hover {
+            background-color: #45a049;
+        }
+        /* Dark mode styles */
+        body.dark-mode {
+            background-color: #222;
+            color: #fff;
+        }
+        body.dark-mode .container {
+            border-color: #666;
+            background-color: #333;
+        }
+        body.dark-mode form {
+            border-color: #666;
+            background-color: #444;
+        }
+        body.dark-mode form input,
+        body.dark-mode form textarea {
+            background-color: #555;
+            color: #fff;
+            border-color: #666;
+        }
+        body.dark-mode form button {
+            background-color: #55acee;
+        }
+    </style>
+</head>
+<body>
+    <div class="toggle-dark-mode" onclick="toggleDarkMode()">
+        🌙
+    </div>
+    <div class="language-select">
+        <select onchange="changeLanguage(this.value)">
+            <option value="en">English</option>
+            <option value="pt-br">Português (BR)</option>
+        </select>
+    </div>
+    <div class="container">
+        <h2 id="contact-header">Contact Me</h2>
+        <form id="contact-form" action="mailto:your-email@example.com" method="post" enctype="text/plain">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" rows="4" required></textarea>
+            <button type="submit">Send Message</button>
+        </form>
+    </div>
+
+    <script>
+        // Function to toggle dark mode
+        function toggleDarkMode() {
+            const body = document.body;
+            body.classList.toggle('dark-mode');
+        }
+
+        // Function to change language
+        function changeLanguage(lang) {
+            const contactHeader = document.getElementById('contact-header');
+            const nameField = document.querySelector('label[for="name"]');
+            const emailField = document.querySelector('label[for="email"]');
+            const messageField = document.querySelector('label[for="message"]');
+            const submitBtn = document.querySelector('button[type="submit"]');
+
+            if (lang === 'pt-br') {
+                contactHeader.innerText = 'Entre em Contato';
+                nameField.innerText = 'Nome:';
+                emailField.innerText = 'Email:';
+                messageField.innerText = 'Mensagem:';
+                submitBtn.innerText = 'Enviar Mensagem';
+            } else {
+                contactHeader.innerText = 'Contact Me';
+                nameField.innerText = 'Name:';
+                emailField.innerText = 'Email:';
+                messageField.innerText = 'Message:';
+                submitBtn.innerText = 'Send Message';
+            }
+        }
+    </script>
+</body>
+</html>
