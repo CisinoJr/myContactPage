@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            transition: background-color 0.3s ease;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        /* Dark mode styles */
+        body.dark-mode {
+            background-color: #222;
+            color: #fff;
+        }
+        body.dark-mode .container {
+            border-color: #666;
+            background-color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="toggle-dark-mode" onclick="toggleDarkMode()">
+        🌙
+    </div>
+    <div class="language-select">
+        <select onchange="changeLanguage(this.value)">
+            <option value="en">English</option>
+            <option value="pt-br">Português (BR)</option>
+        </select>
+    </div>
+    <div class="container">
+        <h2 id="privacy-header">Privacy Policy</h2>
+        <p>This privacy policy applies to the use of our website and the services provided through it. Your privacy is important to us. Please read this policy carefully to understand our views and practices regarding your personal data and how we will treat it.</p>
+        <p>We may collect, store, and use the following kinds of personal information:</p>
+        <ul>
+            <li>Information about your computer and about your visits to and use of this website (including your IP address, geographical location, browser type and version, operating system, referral source, length of visit, page views, and website navigation paths);</li>
+            <li>Information that you provide to us when registering with our website (including your email address);</li>
+            <li>Information that you provide when completing your profile on our website (including your name, profile pictures, gender, date of birth, interests, and hobbies);</li>
+            <li>Information that you provide to us for the purpose of subscribing to our email notifications and/or newsletters (including your name and email address);</li>
+            <li>Information that you provide to us when using the services on our website, or that is generated in the course of the use of those services (including the timing, frequency, and pattern of service use);</li>
+            <li>Information contained in or relating to any communications that you send to us or send through our website (including the communication content and metadata associated with the communication); and</li>
+            <li>Any other personal information that you choose to send to us.</li>
+        </ul>
+        <p>By using our website and agreeing to this policy, you consent to our use of cookies in accordance with the terms of this policy.</p>
+        <p>This policy may be updated from time to time by publishing a new version on our website. You should check this page occasionally to ensure you are happy with any changes to this policy.</p>
+    </div>
+
+    <script>
+        // Function to toggle dark mode
+        function toggleDarkMode() {
+            const body = document.body;
+            body.classList.toggle('dark-mode');
+        }
+
+        // Function to change language
+        function changeLanguage(lang) {
+            const privacyHeader = document.getElementById('privacy-header');
+            const paragraphs = document.querySelectorAll('p');
+
+            if (lang === 'pt-br') {
+                privacyHeader.innerText = 'Política de Privacidade';
+                paragraphs[0].innerHTML = 'Esta política de privacidade se aplica ao uso do nosso site e aos serviços prestados por meio dele. Sua privacidade é importante para nós. Leia esta política atentamente para entender nossas visões e práticas em relação aos seus dados pessoais e como os trataremos.';
+                paragraphs[1].innerHTML = 'Podemos coletar, armazenar e usar os seguintes tipos de informações pessoais:';
+                // Add Portuguese content here
+            } else {
+                privacyHeader.innerText = 'Privacy Policy';
+                paragraphs[0].innerHTML = 'This privacy policy applies to the use of our website and the services provided through it. Your privacy is important to us. Please read this policy carefully to understand our views and practices regarding your personal data and how we will treat it.';
+                paragraphs[1].innerHTML = 'We may collect, store, and use the following kinds of personal information:';
+                // Add English content here
+            }
+        }
+    </script>
+</body>
+</html>
