@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terms of Use</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            transition: background-color 0.3s ease;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        /* Dark mode styles */
+        body.dark-mode {
+            background-color: #222;
+            color: #fff;
+        }
+        body.dark-mode .container {
+            border-color: #666;
+            background-color: #333;
+        }
+        .toggle-dark-mode {
+            cursor: pointer;
+        }
+        .language-select {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="toggle-dark-mode" onclick="toggleDarkMode()">
+        🌙
+    </div>
+    <div class="language-select">
+        <select onchange="changeLanguage(this.value)">
+            <option value="en">English</option>
+            <option value="pt-br">Português (BR)</option>
+        </select>
+    </div>
+    <div class="container">
+        <h2 id="terms-header">Terms of Use</h2>
+        <p id="intro">These terms of use ("Terms") govern your use of our application ("App"). By using our App, you agree to these Terms in full. If you disagree with any part of these Terms, you must not use our App.</p>
+        <ul id="terms-list">
+            <li>Introduction: These Terms constitute a legally binding agreement made between you, whether personally or on behalf of an entity ("you") and [company name] ("we," "us" or "our"), concerning your access to and use of the App.</li>
+            <li>Changes to Terms: We reserve the right to modify these Terms at any time, and will post the updated Terms on the App. Your continued use of the App after such changes constitutes your acceptance of the new Terms.</li>
+            <li>User Responsibilities: You agree to use the App only for lawful purposes and in accordance with these Terms. You must not use the App in any way that causes, or may cause, damage to the App or impairment of the availability or accessibility of the App.</li>
+            <li>Termination: We may terminate or suspend your access to the App immediately, without prior notice or liability, for any reason whatsoever, including without limitation if you breach the Terms.</li>
+            <li>Governing Law: These Terms shall be governed and construed in accordance with the laws of [Country], without regard to its conflict of law provisions.</li>
+        </ul>
+        <p id="conclusion">If you have any questions about these Terms, please contact us at [contact information].</p>
+    </div>
+
+    <script>
+        // Function to toggle dark mode
+        function toggleDarkMode() {
+            const body = document.body;
+            body.classList.toggle('dark-mode');
+        }
+
+        // Function to change language
+        function changeLanguage(lang) {
+            const termsHeader = document.getElementById('terms-header');
+            const intro = document.getElementById('intro');
+            const termsList = document.getElementById('terms-list');
+            const conclusion = document.getElementById('conclusion');
+
+            if (lang === 'pt-br') {
+                termsHeader.innerText = 'Termos de Uso';
+                intro.innerHTML = 'Estes termos de uso ("Termos") regem o uso do nosso aplicativo ("App"). Ao usar nosso App, você concorda com estes Termos na íntegra. Se você discordar de qualquer parte destes Termos, não deve usar nosso App.';
+                termsList.innerHTML = `
+                    <li>Introdução: Estes Termos constituem um acordo legalmente vinculativo feito entre você, seja pessoalmente ou em nome de uma entidade ("você") e [nome da empresa] ("nós", "nosso" ou "nosso"), concernente ao seu acesso e uso do App.</li>
+                    <li>Mudanças nos Termos: Reservamo-nos o direito de modificar estes Termos a qualquer momento, e publicaremos os Termos atualizados no App. Seu uso continuado do App após tais mudanças constitui sua aceitação dos novos Termos.</li>
+                    <li>Responsabilidades do Usuário: Você concorda em usar o App apenas para fins legais e de acordo com estes Termos. Você não deve usar o App de qualquer maneira que cause ou possa causar danos ao App ou prejudicar a disponibilidade ou acessibilidade do App.</li>
+                    <li>Rescisão: Podemos encerrar ou suspender seu acesso ao App imediatamente, sem aviso prévio ou responsabilidade, por qualquer motivo, incluindo, sem limitação, se você violar os Termos.</li>
+                    <li>Lei Aplicável: Estes Termos serão regidos e interpretados de acordo com as leis do [País], sem levar em conta suas disposições sobre conflito de leis.</li>
+                `;
+                conclusion.innerHTML = 'Se você tiver alguma dúvida sobre estes Termos, entre em contato conosco em [informações de contato].';
+            } else {
+                termsHeader.innerText = 'Terms of Use';
+                intro.innerHTML = 'These terms of use ("Terms") govern your use of our application ("App"). By using our App, you agree to these Terms in full. If you disagree with any part of these Terms, you must not use our App.';
+                termsList.innerHTML = `
+                    <li>Introduction: These Terms constitute a legally binding agreement made between you, whether personally or on behalf of an entity ("you") and [company name] ("we," "us" or "our"), concerning your access to and use of the App.</li>
+                    <li>Changes to Terms: We reserve the right to modify these Terms at any time, and will post the updated Terms on the App. Your continued use of the App after such changes constitutes your acceptance of the new Terms.</li>
+                    <li>User Responsibilities: You agree to use the App only for lawful purposes and in accordance with these Terms. You must not use the App in any way that causes, or may cause, damage to the App or impairment of the availability or accessibility of the App.</li>
+                    <li>Termination: We may terminate or suspend your access to the App immediately, without prior notice or liability, for any reason whatsoever, including without limitation if you breach the Terms.</li>
+                    <li>Governing Law: These Terms shall be governed and construed in accordance with the laws of [Country], without regard to its conflict of law provisions.</li>
+                `;
+                conclusion.innerHTML = 'If you have any questions about these Terms, please contact us at [contact information].';
+            }
+        }
+    </script>
+</body>
+</html>
